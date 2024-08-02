@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-// import ContactForm from './components/ContactForm/ContactForm';
+import ContactForm from './components/ContactForm/ContactForm';
 import SearchBox from './components/SearchBox/SearchBox';
 import ContactList from './components/ContactList/ContactList';
 const App = () => {
@@ -19,11 +19,24 @@ const App = () => {
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+
+  const addContact = (name, number) => {
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+    setContact([newContact, ...contacts]);
+  };
+
+  const filterContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
   return (
     <>
       <div>
         <h1 className="main-title">Phonebook</h1>
-        {/* <ContactForm /> */}
+        <ContactForm addContact={addContact} />
         <SearchBox filter={filter} handleFilterChange={handleFilterChange} />
         <ContactList contacts={filteredContacts} />
       </div>
