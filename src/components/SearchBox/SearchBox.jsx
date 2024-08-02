@@ -10,6 +10,7 @@ const SearchBox = ({ filter, handleFilterChange }) => {
         type="text"
         value={filter}
         onChange={handleFilterChange}
+        name="filter"
       />
     </div>
   );

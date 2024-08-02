@@ -35,6 +35,8 @@ const ContactForm = ({ addContact }) => {
           <div className={css.formInputWrapper}>
             <label htmlFor="nameId">Name</label>
             <Field
+              as="input"
+              autoComplete="on"
               type="text"
               name="name"
               id="nameId"
